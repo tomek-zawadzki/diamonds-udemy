@@ -8,9 +8,20 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-sclae=1, minimum-scale=1"
     />
     <title>Document</title>
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+    <div class="game">
+      <div class="game__container">
+        <div class="game__layer start-screen" id="js-start-screen">
+          <button class="start-screen__button" id="js-start-game"></button>
+          <button
+            class="start-screen__button start-screen__button--is-settings"
+            id="js-settingd-button"
+          ></button>
+        </div>
+      </div>
+    </div>
     <script src="./index.esm.js" type="module"></script>
   </body>
 </html>
