@@ -38,7 +38,7 @@ export class Sprite {
       this.x + this.offeset.x,
       this.y + this.offeset.y,
       this.width * ratio,
-      this.height * this.height
+      this.height * ratio
     );
 
     if (this.alpha !== 255) {

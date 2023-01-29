@@ -1,6 +1,5 @@
 import { Common } from "./Common.esm.js";
 import { media } from "./Media.esm.js";
-import { game } from "./Game.esm.js";
 
 const GAME_SCREEN_ID = "js-game-screen";
 const LOAD_CURRENT_ID = "js-loading-screen-current";

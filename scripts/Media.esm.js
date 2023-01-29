@@ -14,6 +14,17 @@ class Media {
   get backgroundImage() {
     return this._backgroundImage;
   }
+
+  set diamondsSprite(imageObject) {
+    if (!imageObject instanceof Image) {
+      return;
+    }
+    this._diamondsSprite = imageObject;
+  }
+
+  get diamondsSprite() {
+    return this._diamondsSprite;
+  }
 }
 
 export const media = new Media();

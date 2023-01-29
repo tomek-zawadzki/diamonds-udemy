@@ -45,6 +45,9 @@ class LevelSelect extends Common {
   }
 
   loadLevel(level) {
+    media.diamondsSprite = loader.loadImage(
+      "./Files/Diamenty/images/diamonds-transparent.png"
+    );
     media.backgroundImage = loader.loadImage(
       "./Files/Diamenty/images/levelbackground.png"
     );
