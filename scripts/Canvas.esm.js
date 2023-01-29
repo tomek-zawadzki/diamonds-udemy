@@ -1,6 +1,8 @@
 import { Common } from "./Common.esm.js";
 
 const GAME_SCREEN_ID = "js-game-screen";
+const LOAD_CURRENT_ID = "js-loading-screen-current";
+const LOAD_TOTAL_ID = "js-loading-screen-total";
 
 export const CANVAS_WIDTH = 640;
 export const CANVAS_HEIGHT = 480;
