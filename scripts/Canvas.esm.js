@@ -1,5 +1,6 @@
 import { Common } from "./Common.esm.js";
 import { media } from "./Media.esm.js";
+import { game } from "./Game.esm.js";
 
 const GAME_SCREEN_ID = "js-game-screen";
 const LOAD_CURRENT_ID = "js-loading-screen-current";
@@ -22,12 +23,27 @@ class Canvas extends Common {
     this.context.fillStyle = "white";
   }
 
-  drawGameOnCanvas() {
+  drawGameOnCanvas(gameState) {
     this.drawBackground();
+    this.drawPointsToWin(gameState.pointsToWin);
+    this.drawPlayersPoints(gameState.getPlayerPoints());
+    this.drawLeftMovement(gameState.getLeftMovement());
   }
 
   drawBackground() {
     this.context.drawImage(media.backgroundImage, 0, 0);
+  }
+
+  drawPointsToWin(pointsToWin) {
+    this.context.fillText(`${pointsToWin}`, 520, 92);
+  }
+
+  drawPlayersPoints(playersPoints) {
+    this.context.fillText(`${playersPoints}`, 520, 163);
+  }
+
+  drawLeftMovement(leftMovement) {
+    this.context.fillText(`${leftMovement}`, 520, 234);
   }
 }
 
