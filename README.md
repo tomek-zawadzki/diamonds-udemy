@@ -1,1 +1,1 @@
-# dimonds-udemy
+# diamonds-udemy
