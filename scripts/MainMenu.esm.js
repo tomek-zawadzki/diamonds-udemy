@@ -19,7 +19,6 @@ class MainMenu extends Common {
     const gameSettingsButton = this.bindToElement(
       START_SCREN_SETTINGS_BUTTON_ID
     );
-
     gameStartButton.addEventListener("click", () => this.showLevelScreen());
     gameSettingsButton.addEventListener("click", () =>
       this.showSettingsScreen()
