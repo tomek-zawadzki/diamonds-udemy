@@ -22,7 +22,7 @@ class MouseController {
     );
 
     this.x = (event.clientX - offset.left) / scale;
-    this.y = (event.clientX - offset.top) / scale;
+    this.y = (event.clientY - offset.top) / scale;
     this.clicked = true;
   }
 }

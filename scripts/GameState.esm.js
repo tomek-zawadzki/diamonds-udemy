@@ -1,5 +1,5 @@
 import { Diamond } from "./Diamond.esm.js";
-
+// import { DIAMONDS_ARRAY_WIDTH } from "./Game.esm.js";
 export class GameState {
   constructor(level, leftMovement, pointsToWin, diamonds, diamondsSpriteImage) {
     let _leftMovement = leftMovement;
