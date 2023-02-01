@@ -11,6 +11,7 @@ import { media } from "./Media.esm.js";
 import { GameState } from "./GameState.esm.js";
 import { mouseController } from "./MouseControler.esm.js";
 import { DIAMOND_SIZE, NUMBER_OF_DIAMONDS_TYPES } from "./Diamond.esm.js";
+import { resultScreen } from "./ResultScreen.esm.js";
 
 const DIAMONDS_ARRAY_WIDTH = 0;
 const DIAMONDS_ARRAY_HEIGHT = DIAMONDS_ARRAY_WIDTH + 1; // with invisible first line
@@ -50,7 +51,7 @@ class Game extends Common {
     this.clearMatched();
     canvas.drawGameOnCanvas(this.gameState);
     this.gameState.getGameBoard().forEach((diamond) => diamond.draw());
-    this.animationFrame = window.requestAnimationFrame(() => this.animate());
+    this.chechEndOfGame();
   }
 
   handleMouseState() {
@@ -268,6 +269,28 @@ class Game extends Common {
         diamond.alpha = 255;
       }
     });
+  }
+
+  chechEndOfGame() {
+    if (
+      !this.gameState.getLeftMovement() &&
+      !this.gameState.getIsMoving() &&
+      !this.gameState.getIsSwaping()
+    ) {
+      const isPlayerWinner = this.gameState.isPlayerWinner();
+
+      if (isPlayerWinner && gameLevels[this.gameState.level]) {
+        console.log("kolejny level odblokowany");
+      }
+      console.log("jeżeli gracz ma wiecej pkt to aktualizacja high scores");
+      resultScreen.viewResultScreen(
+        isPlayerWinner,
+        this.gameState.getPlayerPoints(),
+        this.gameState.level
+      );
+    } else {
+      this.animationFrame = window.requestAnimationFrame(() => this.animate());
+    }
   }
 
   swap(firstDiamond, secondDiamond) {
