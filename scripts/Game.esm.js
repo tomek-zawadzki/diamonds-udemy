@@ -12,6 +12,7 @@ import { GameState } from "./GameState.esm.js";
 import { mouseController } from "./MouseControler.esm.js";
 import { DIAMOND_SIZE, NUMBER_OF_DIAMONDS_TYPES } from "./Diamond.esm.js";
 import { resultScreen } from "./ResultScreen.esm.js";
+import { userData } from "./UserData.esm.js";
 
 const DIAMONDS_ARRAY_WIDTH = 0;
 const DIAMONDS_ARRAY_HEIGHT = DIAMONDS_ARRAY_WIDTH + 1; // with invisible first line
@@ -278,15 +279,23 @@ class Game extends Common {
       !this.gameState.getIsSwaping()
     ) {
       const isPlayerWinner = this.gameState.isPlayerWinner();
+      const currentLevel = Number(this.gameState.level);
 
-      if (isPlayerWinner && gameLevels[this.gameState.level]) {
-        console.log("kolejny level odblokowany");
+      if (isPlayerWinner && gameLevels[currentLevel]) {
+        if (!userData.chechAvailabilityLevel(currentLevel + 1)) {
+          userData.addNewLevel(currentLevel + 1);
+        }
       }
-      console.log("jeżeli gracz ma wiecej pkt to aktualizacja high scores");
+      if (
+        userData.getHighScore(currentLevel) < this.gameState.getPlayerPoints()
+      ) {
+        userData.setHighScore(currentLevel, this.gameState.getPlayerPoints());
+      }
+
       resultScreen.viewResultScreen(
         isPlayerWinner,
         this.gameState.getPlayerPoints(),
-        this.gameState.level
+        currentLevel
       );
     } else {
       this.animationFrame = window.requestAnimationFrame(() => this.animate());

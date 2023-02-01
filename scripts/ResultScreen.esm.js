@@ -1,6 +1,7 @@
 import { canvas } from "./Canvas.esm.js";
 import { Common, HIDDEN_SCREEN } from "./Common.esm.js";
 import { mainMenu } from "./MainMenu.esm.js";
+import { userData } from "./UserData.esm.js";
 
 const RESULT_SCREEN_GAME_WIN_CLASS = "edn-screen--is-win";
 const RESULT_SCREEN_END_SCREEN_ID = "js-end-screen";
@@ -40,7 +41,7 @@ class ResultScreen extends Common {
     this.changeVisibilityScreen(this.element, VISIBLE_SCREEN);
     this.resultTextElemnet.textContent = isGameWin ? "WYGRAŁEŚ" : "PRZEGRAŁEŚ";
     this.userPointsElement.textContent = String(playerPoints);
-    this.highScoresElement.textContent = 7000;
+    this.highScoresElement.textContent = String(userData.getHighScore(level));
   }
 
   backButtonClick() {
