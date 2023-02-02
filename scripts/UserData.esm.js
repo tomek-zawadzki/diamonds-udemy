@@ -5,7 +5,7 @@ class UserData {
     }
   }
 
-  chechAvailabilityLevel(levelNumber) {
+  checkAvailabilityLevel(levelNumber) {
     const item = localStorage.getItem(String(levelNumber));
 
     if (!item) {

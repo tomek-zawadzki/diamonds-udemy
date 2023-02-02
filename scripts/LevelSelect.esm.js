@@ -22,7 +22,7 @@ class LevelSelect extends Common {
   }
 
   createButton(value) {
-    if (!userData.chechAvailabilityLevel(value)) {
+    if (!userData.checkAvailabilityLevel(value)) {
       return true;
     }
     const button = document.createElement("button");

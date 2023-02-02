@@ -19,12 +19,13 @@ export class GameState {
     this.getPlayerPoints = () => _playerScores;
     this.increasePlayerPoints = (points) => (_playerScores += points);
 
-    this.isPlayerWinner = () => _playerScores >= this._pointsToWin;
-    this.getGameBoard = () => _gameBoard;
     this.getIsSwaping = () => _isSwaping;
     this.setIsSwaping = (value) => (_isSwaping = value);
     this.getIsMoving = () => _isMoving;
     this.setIsMoving = (value) => (_isMoving = value);
+
+    this.isPlayerWinner = () => _playerScores >= this._pointsToWin;
+    this.getGameBoard = () => _gameBoard;
   }
 
   get level() {
